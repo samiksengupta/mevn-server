@@ -1,0 +1,25 @@
+{
+  "name": "mevn-server",
+  "version": "1.0.0",
+  "description": "A NodeJS Server supporting MEVN Stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --silent=false --testEnvironment=node --runInBand --detectOpenHandles --coverage ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samiksengupta/mevn-server.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mevn",
+    "server",
+    "api"
+  ],
+  "author": "Samik Sengupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samiksengupta/mevn-server/issues"
+  },
+  "homepage": "https://github.com/samiksengupta/mevn-server#readme"
+}
