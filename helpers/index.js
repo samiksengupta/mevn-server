@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+const Sequelize = require('sequelize');
+const { DB_NAME, DB_USERNAME, DB_PASSWORD, DB_DIALECT, DB_HOSTNAME } = require('../config/db');
 const server = require("../config/server");
 
 module.exports = {
@@ -77,4 +79,9 @@ module.exports = {
         }
         return slug;
     },
+
+    sequelizeInstance: () => new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+        dialect: DB_DIALECT,
+        host: DB_HOSTNAME
+    })
 };

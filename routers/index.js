@@ -8,4 +8,4 @@ mainRouter.use('/', webRouter);
 mainRouter.use('/api', apiRouter);
 mainRouter.use('/api', apiRouterSecure);
 
-module.exports.mainRouter;
+module.exports = mainRouter;
