@@ -1,8 +1,12 @@
 'use strict';
 const { Model, DataTypes } = require('sequelize');
-const { hashPassword, comparePassword, sequelizeInstance } = require('../helpers');
+const { hashPassword, comparePassword, getSequelizeInstance } = require('../helpers');
 
 class User extends Model {
+
+    static classMethod() {
+        console.log("This is a class level method");
+    }
 
     static async authenticate(username, password) {
         const user = await User.findOne({
@@ -17,12 +21,6 @@ class User extends Model {
         }
         return false;
     }
-
-    toJSON() {
-        const user = Object.assign({}, this.dataValues);
-        delete user.password;
-        return user
-    }
 }
 
 User.init({
@@ -35,7 +33,7 @@ User.init({
     refreshToken: DataTypes.STRING,
     isAdmin: DataTypes.BOOLEAN,
 }, {
-    sequelizeInstance,
+    sequelize: getSequelizeInstance(),
     modelName: 'User',
     scopes: {
         withoutSecrets: {
@@ -48,4 +46,4 @@ User.beforeCreate(async (user, options) => {
     user.password = await hashPassword(user.password);
 });
 
-module.exports.User;
+module.exports = User;
