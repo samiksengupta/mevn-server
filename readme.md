@@ -1,4 +1,4 @@
-## Node JS Ecommerce Backend Project
+## Node JS Admin Panel / API Resource Backend Project
 
 This is a NodeJS powered Web Application, Backend and API Resource hub for it's client interface.
 
